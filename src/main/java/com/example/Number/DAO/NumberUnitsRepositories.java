@@ -1,11 +1,7 @@
-package com.example.Number.model;
+package com.example.Number.DAO;
 
 import com.example.Number.service.ReaderFileService;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.Map;
 
 public class NumberUnitsRepositories {
@@ -17,9 +13,6 @@ public class NumberUnitsRepositories {
         this.readerFileService = readerFileService;
     }
 
-    public void setUnitsMap(Map<String, String> unitsMap) {
-        this.unitsMap = unitsMap;
-    }
 
     public Map<String, String> getUnitsMap() {
         return unitsMap;
