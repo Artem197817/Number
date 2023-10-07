@@ -20,8 +20,14 @@ public class ControllerService {
         this.numberThousandsRepositories = numberThousandsRepositories;
     }
 
-    public String controller(String number) {
-        // validator
+    public String controller(String num) {
+        String number;
+        try {
+            number = num.replace(" ", "").trim();
+            int numb = Integer.parseInt(number);
+        } catch (NumberFormatException e) {
+            return "Неккоректное значение";
+        }
 
         return switch (number.length()) {
             case 1 -> units(number);
@@ -30,7 +36,6 @@ public class ControllerService {
             case 4, 5, 6 -> thousands(number);
             default -> null;
         };
-
     }
 
     private String thousands(String number) {
@@ -73,6 +78,7 @@ public class ControllerService {
         if (!temp[1].equals("0")) {
             String str = temp[1] + temp[2];
             result.append(tens(str));
+            return  result.toString();
         }
         if (!temp[2].equals("0"))
             result.append(units(temp[2]));
